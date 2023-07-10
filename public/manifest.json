@@ -1,6 +1,6 @@
 {
-  "short_name": "Weather",
-  "name": "React Weather App",
+  "short_name": "Air Quality",
+  "name": "React Air Quality App",
   "icons": [
     {
       "src": "favicon.ico",
