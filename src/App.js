@@ -6,7 +6,7 @@ import Panoramic from './components/Panoramic';
 function App() {
   return (
     <div className="App">
-        <div className='container'>
+        <div className='contentContainer'>
           <div className='panoramicContainer'>
             <Panoramic />
           </div>

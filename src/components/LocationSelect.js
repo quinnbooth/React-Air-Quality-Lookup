@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AirQualityViz from './AirQualityViz'
 
 function LocationSelect() {
 
@@ -35,14 +36,13 @@ function LocationSelect() {
 
         fetchForcast().then((forcast) => {
 
-            setAirData(forcast.list);
+            let forcastData = forcast.list;
 
             fetchCurrent().then((current) => {
 
-                setAirData((data) => {
-                    data.unshift(current.list);
-                    return data;
-                });
+                const nowData = current.list[0];
+                forcastData.unshift(nowData);
+                setAirData(forcastData);
 
             });
 
@@ -52,10 +52,12 @@ function LocationSelect() {
     return (
 
         <div className='locationSelector'>
-            <input type="number" value={latitude} onChange={handleLatitudeUpdate} />
-            <input type="number" value={longitude} onChange={handleLongitudeUpdate} />
-            <button onClick={handleSearch}>Search</button>
-            {/* <h1>{String(airData)}</h1> */}
+            <div className='controlsContainer'>
+                <input type="number" value={latitude} onChange={handleLatitudeUpdate} />
+                <input type="number" value={longitude} onChange={handleLongitudeUpdate} />
+                <button onClick={handleSearch}>Search</button>
+            </div>
+            <AirQualityViz data={airData} />
         </div>
 
     );

@@ -2,21 +2,39 @@
   text-align: center;
 }
 
-.container {
+.contentContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
 
-.panoramicContainer {
-  overflow: hidden;
+.controlsContainer {
+  display: flex;
+  height: 20%;
+  justify-content: center;
+  align-items: center;
+}
+
+.graphContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: pink; */
+  height: 80%;
 }
 
 .locationSelector {
   position: absolute;
-  display: flex;
   align-items: center;
   justify-content: center;
-  top: 20%;
+  top: 10%;
+  left: 10%;
+  height: 80%;
+  width: 80%;
+  /* background-color: red; */
+}
+
+.panoramicContainer {
+  overflow: hidden;
 }
