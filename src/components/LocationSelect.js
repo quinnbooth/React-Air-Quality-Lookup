@@ -5,6 +5,7 @@ function LocationSelect() {
     const { REACT_APP_OPENWEATHER_API_KEY } = process.env;
     const [latitude, setLatitude] = useState(50);
     const [longitude, setLongitude] = useState(50);
+    const [airData, setAirData] = useState(null);
 
     const handleLatitudeUpdate = (event) => {
         setLatitude(parseInt(event.target.value));
@@ -12,10 +13,6 @@ function LocationSelect() {
 
     const handleLongitudeUpdate = (event) => {
         setLongitude(parseInt(event.target.value));
-    };
-
-    const handleSearch = () => {
-        console.log({latitude, longitude});
     };
 
     async function fetchCurrent() {
@@ -31,9 +28,26 @@ function LocationSelect() {
         let data = await response.json();
         return data;
     }
-    
-    //fetchCurrent().then(data => console.log(data));
-    //fetchForcast().then(data => console.log(data));
+
+    const handleSearch = () => {
+
+        console.log(`Fetching data for (${latitude}, ${longitude}):`);
+
+        fetchForcast().then((forcast) => {
+
+            setAirData(forcast.list);
+
+            fetchCurrent().then((current) => {
+
+                setAirData((data) => {
+                    data.unshift(current.list);
+                    return data;
+                });
+
+            });
+
+        });
+    };
 
     return (
 
@@ -41,6 +55,7 @@ function LocationSelect() {
             <input type="number" value={latitude} onChange={handleLatitudeUpdate} />
             <input type="number" value={longitude} onChange={handleLongitudeUpdate} />
             <button onClick={handleSearch}>Search</button>
+            {/* <h1>{String(airData)}</h1> */}
         </div>
 
     );
