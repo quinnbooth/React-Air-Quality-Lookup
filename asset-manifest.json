@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/React-Air-Quality-Lookup/static/css/main.e6859ad6.css",
-    "main.js": "/React-Air-Quality-Lookup/static/js/main.cd5e5d7e.js",
+    "main.css": "/React-Air-Quality-Lookup/static/css/main.0d3a8fb2.css",
+    "main.js": "/React-Air-Quality-Lookup/static/js/main.d1b7ee79.js",
     "static/js/787.b30f2593.chunk.js": "/React-Air-Quality-Lookup/static/js/787.b30f2593.chunk.js",
     "static/media/cloud_panoramic.jpg": "/React-Air-Quality-Lookup/static/media/cloud_panoramic.15c169e66f0bdd5d4196.jpg",
     "index.html": "/React-Air-Quality-Lookup/index.html",
-    "main.e6859ad6.css.map": "/React-Air-Quality-Lookup/static/css/main.e6859ad6.css.map",
-    "main.cd5e5d7e.js.map": "/React-Air-Quality-Lookup/static/js/main.cd5e5d7e.js.map",
+    "main.0d3a8fb2.css.map": "/React-Air-Quality-Lookup/static/css/main.0d3a8fb2.css.map",
+    "main.d1b7ee79.js.map": "/React-Air-Quality-Lookup/static/js/main.d1b7ee79.js.map",
     "787.b30f2593.chunk.js.map": "/React-Air-Quality-Lookup/static/js/787.b30f2593.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6859ad6.css",
-    "static/js/main.cd5e5d7e.js"
+    "static/css/main.0d3a8fb2.css",
+    "static/js/main.d1b7ee79.js"
   ]
 }
