@@ -4,8 +4,19 @@
 
 .container {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .panoramicContainer {
   overflow: hidden;
+}
+
+.locationSelector {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 20%;
 }
