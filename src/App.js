@@ -1,16 +1,21 @@
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import './App.css';
-import LocationSelect from './components/LocationSelect';
+import Console from './components/Console';
 //import {Routes, Route, Link} from 'react-router-dom';
 import Panoramic from './components/Panoramic';
 
 function App() {
   return (
     <div className="App">
+        <div className='panoramicContainer'>
+          <Panoramic />
+        </div>
         <div className='contentContainer'>
-          <div className='panoramicContainer'>
-            <Panoramic />
-          </div>
-          <LocationSelect />
+          <Parallax pages={10}>
+            <ParallaxLayer offset={0} className="center">
+              <Console />
+            </ParallaxLayer>
+          </Parallax>
         </div>
     </div>
   );

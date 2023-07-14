@@ -1,12 +1,19 @@
 .App {
   text-align: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
 }
 
 .contentContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
+  overflow-y: scroll;
 }
 
 .controlsContainer {
@@ -16,12 +23,25 @@
   align-items: center;
 }
 
-.graphContainer {
+.gasPlot {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.graphContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   /* background-color: pink; */
-  height: 80%;
+  text-align: center;
+  height: 1050px;
+}
+
+.graphContainer > * {
+  flex-basis: 50%;
+  margin-bottom: 20px;
 }
 
 .locationSelector {
@@ -30,11 +50,22 @@
   justify-content: center;
   top: 10%;
   left: 10%;
-  height: 80%;
   width: 80%;
   /* background-color: red; */
 }
 
 .panoramicContainer {
+  position: fixed;
   overflow: hidden;
+  z-index: -2;
+}
+
+.bottomDiv {
+  background-color: blue;
+  height: 1000px;
+}
+
+.bottomDiv2 {
+  background-color: red;
+  height: 1000px;
 }

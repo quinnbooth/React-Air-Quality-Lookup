@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import AirQualityViz from './AirQualityViz'
+import ComponentsPlots from './ComponentsPlots'
 
-function LocationSelect() {
+function Console() {
 
     const { REACT_APP_OPENWEATHER_API_KEY } = process.env;
     const [latitude, setLatitude] = useState(50);
@@ -32,8 +32,6 @@ function LocationSelect() {
 
     const handleSearch = () => {
 
-        console.log(`Fetching data for (${latitude}, ${longitude}):`);
-
         fetchForcast().then((forcast) => {
 
             let forcastData = forcast.list;
@@ -57,11 +55,11 @@ function LocationSelect() {
                 <input type="number" value={longitude} onChange={handleLongitudeUpdate} />
                 <button onClick={handleSearch}>Search</button>
             </div>
-            <AirQualityViz data={airData} />
+            <ComponentsPlots data={airData} />
         </div>
 
     );
 
 }
 
-export default LocationSelect;
+export default Console;
