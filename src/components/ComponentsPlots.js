@@ -9,7 +9,7 @@ function ComponentsPlots(props) {
     const hours = 24;
     const timeFrame = {
         start: day * 24 - hours,
-        stop: day * 24 - 1
+        stop: day * 24
     }
     
     let aqiData = null;
@@ -19,7 +19,7 @@ function ComponentsPlots(props) {
 
         aqiData = data.map((element) => {
             if (element.main && element.main.aqi) {
-                return {AQI: element.main.aqi};
+                return {aqi: element.main.aqi};
             } else {
                 return null;
             }
@@ -36,13 +36,18 @@ function ComponentsPlots(props) {
     }
    
     return (
-        <div className='graphContainer'>
-            <GasLevelsPlot className="gasPlot" data={componentsData} gas="so2" />
-            <GasLevelsPlot className="gasPlot" data={componentsData} gas="no2" />
-            <GasLevelsPlot className="gasPlot" data={componentsData} gas="pm10" />
-            <GasLevelsPlot className="gasPlot" data={componentsData} gas="pm2_5" />
-            <GasLevelsPlot className="gasPlot" data={componentsData} gas="o3" />
-            <GasLevelsPlot className="gasPlot" data={componentsData} gas="co" />
+        <div className='graphsContainer'>
+            <div>
+                <GasLevelsPlot className="gasPlot" data={aqiData} gas="aqi" height="200"/>
+            </div>
+            <div className='componentsContainer'>
+                <GasLevelsPlot className="gasPlot" data={componentsData} gas="so2" height="330" />
+                <GasLevelsPlot className="gasPlot" data={componentsData} gas="no2" height="330" />
+                <GasLevelsPlot className="gasPlot" data={componentsData} gas="pm10" height="330" />
+                <GasLevelsPlot className="gasPlot" data={componentsData} gas="pm2_5" height="330" />
+                <GasLevelsPlot className="gasPlot" data={componentsData} gas="o3" height="330" />
+                <GasLevelsPlot className="gasPlot" data={componentsData} gas="co" height="330" />
+            </div>
         </div>
     );
 }

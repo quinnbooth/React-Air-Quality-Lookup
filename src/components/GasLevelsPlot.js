@@ -4,7 +4,7 @@ function GasLevelsPlot(props) {
 
     if (!props.data) return null;
 
-    const { data, gas } = props;
+    const { data, gas, height } = props;
 
     const currentDate = new Date();
     const currentHour = currentDate.getHours(); 
@@ -28,6 +28,7 @@ function GasLevelsPlot(props) {
     });
 
     const gasNames = {
+        aqi: "Air Quality Index (AQI)",
         so2: "Sulfur Dioxide (SO\u2082)",
         no2: "Nitrogen Dioxide (NO\u2082)",
         pm10: "Coarse Particulate Matter (PM\u2081\u2080)",
@@ -37,6 +38,7 @@ function GasLevelsPlot(props) {
     }
 
     const safetyLimits = {
+        aqi: [2, 3, 4, 5],
         so2: [20, 80, 250, 350],
         no2: [40, 70, 150, 200],
         pm10: [20, 50, 100, 200],
@@ -97,10 +99,19 @@ function GasLevelsPlot(props) {
         );
 
     };
+
+    const getYAxisDomain = () => {
+        if (gas === "aqi") {
+            return [0, 5];
+        } else {
+            const upperBound = Math.ceil(Math.max(...gasData)*1.1);
+            return [0, upperBound];
+        }
+    };
           
     return (
 
-        <ResponsiveContainer width="100%" height={330}>
+        <ResponsiveContainer width="100%" height={parseInt(height)}>
             <AreaChart 
                 data={timeData}
                 margin={{
@@ -113,8 +124,8 @@ function GasLevelsPlot(props) {
                 <defs>
                     <GenerateGradient />
                 </defs>
-                <text x="54%" y={20} fill="black" textAnchor="middle" dominantBaseline="central">
-                    <tspan fontSize="14">{gasNames[gas]}</tspan>
+                <text x="54%" y={10} fill="black" textAnchor="middle" dominantBaseline="central">
+                    <tspan fontSize="20">{gasNames[gas]}</tspan>
                 </text>
                 <CartesianGrid />
                 <XAxis
@@ -123,16 +134,23 @@ function GasLevelsPlot(props) {
                     ticks={tickValues}
                     interval={0}
                 />
-                <YAxis />
+                <YAxis domain={getYAxisDomain}/>
                 <Tooltip 
-                    labelFormatter={(value) => `hour: ${value}:00`}
-                    formatter={(value) => `${value} µg/m\u00B3`}
+                    labelFormatter={(value) => `Hour: ${value}:00`}
+                    formatter={(value) => {
+                        if (gas === "aqi") {
+                            return value;
+                        } else {
+                            return `${value} µg/m\u00B3`;
+                        }
+                    }}
                 />
                 <Area
                     dataKey={gas}
                     stackId="1"
                     stroke={`url(#${gas})`}
                     fill={`url(#${gas})`}
+                    label={`${gasNames[gas]} Value`}
                 />
             </AreaChart>
         </ResponsiveContainer>

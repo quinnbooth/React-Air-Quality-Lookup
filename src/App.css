@@ -29,7 +29,12 @@
   align-items: center;
 }
 
-.graphContainer {
+.graphsContainer > :first-child {
+  margin-top: 60px;
+  margin-bottom: 60px; 
+}
+
+.componentsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -39,9 +44,10 @@
   height: 1050px;
 }
 
-.graphContainer > * {
+.componentsContainer > * {
   flex-basis: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .locationSelector {
@@ -60,12 +66,8 @@
   z-index: -2;
 }
 
-.bottomDiv {
-  background-color: blue;
-  height: 1000px;
-}
-
-.bottomDiv2 {
-  background-color: red;
-  height: 1000px;
+.testDiv {
+  height: 300px;
+  width: 100%;
+  background-color: yellow;
 }
