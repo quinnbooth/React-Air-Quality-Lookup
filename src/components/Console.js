@@ -49,12 +49,14 @@ function Console() {
 
     return (
 
-        <div className='locationSelector'>
+        <div className='parallaxContainer'>
+            <h1 className='airHeader'>AIR QUALITY</h1>
             <div className='controlsContainer'>
                 <input type="number" value={latitude} onChange={handleLatitudeUpdate} />
                 <input type="number" value={longitude} onChange={handleLongitudeUpdate} />
                 <button onClick={handleSearch}>Search</button>
             </div>
+            <div className='legend'></div>
             <ComponentsPlots data={airData} />
         </div>
 

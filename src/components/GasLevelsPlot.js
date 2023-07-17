@@ -133,8 +133,14 @@ function GasLevelsPlot(props) {
                     tickFormatter={(value) => `${value}:00`}
                     ticks={tickValues}
                     interval={0}
+                    tick={{ fill: '#000'}}
+                    axisLine={{ stroke: '#000', strokeWidth: 1 }}
                 />
-                <YAxis domain={getYAxisDomain}/>
+                <YAxis 
+                    domain={getYAxisDomain}
+                    tick={{ fill: '#000'}}
+                    axisLine={{ stroke: '#000', strokeWidth: 1 }}
+                />
                 <Tooltip 
                     labelFormatter={(value) => `Hour: ${value}:00`}
                     formatter={(value) => {
