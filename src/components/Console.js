@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ComponentsPlots from './ComponentsPlots'
+import Searchbar from './Searchbar';
+import CityLocations from '../worldcities.json';
 
 function Console() {
 
     const { REACT_APP_OPENWEATHER_API_KEY } = process.env;
-    const [latitude, setLatitude] = useState(50);
-    const [longitude, setLongitude] = useState(50);
+    const [location, setLocation] = useState([34.05, -118.24]);
+    const [ latitude, longitude ] = location;
     const [airData, setAirData] = useState(null);
-
-    const handleLatitudeUpdate = (event) => {
-        setLatitude(parseInt(event.target.value));
-    };
-
-    const handleLongitudeUpdate = (event) => {
-        setLongitude(parseInt(event.target.value));
-    };
 
     async function fetchCurrent() {
         let request = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${REACT_APP_OPENWEATHER_API_KEY}`;
@@ -32,6 +26,8 @@ function Console() {
 
     const handleSearch = () => {
 
+        console.log(`Fetching air data for: (${latitude}, ${longitude})`);
+
         fetchForcast().then((forcast) => {
 
             let forcastData = forcast.list;
@@ -47,16 +43,15 @@ function Console() {
         });
     };
 
+    useEffect(() => {
+        handleSearch();
+    }, [location]);
+
     return (
 
         <div className='parallaxContainer'>
             <h1 className='airHeader'>AIR QUALITY</h1>
-            <div className='controlsContainer'>
-                <input type="number" value={latitude} onChange={handleLatitudeUpdate} />
-                <input type="number" value={longitude} onChange={handleLongitudeUpdate} />
-                <button onClick={handleSearch}>Search</button>
-            </div>
-            <div className='legend'></div>
+            <Searchbar placeholder="Los Angeles" data={CityLocations} setLocation={setLocation} />
             <ComponentsPlots data={airData} />
         </div>
 
