@@ -3,6 +3,7 @@ import ComponentsPlots from './ComponentsPlots'
 import Searchbar from './Searchbar';
 import CityLocations from '../worldcities.json';
 
+
 function Console() {
 
     const { REACT_APP_OPENWEATHER_API_KEY } = process.env;
@@ -50,8 +51,8 @@ function Console() {
     return (
 
         <div className='parallaxContainer'>
-            <h1 className='airHeader'>AIR QUALITY</h1>
-            <Searchbar placeholder="Los Angeles" data={CityLocations} setLocation={setLocation} />
+            <img src={require('../assets/images/legend.png')} alt="Legend" className='legend'/>
+            <Searchbar placeholder="Enter your city..." data={CityLocations} setLocation={setLocation} />
             <ComponentsPlots data={airData} />
         </div>
 

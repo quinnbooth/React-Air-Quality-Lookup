@@ -6,15 +6,21 @@
 
 .airHeader {
   text-align: center;
-  position: absolute;
-  top: -30px;
   color: #b6e0e3;
   opacity: 80%;
-  transform: scaleY(2.5) translateX(6vw);
+  transform: scaleY(2.3);
   font-family: 'Times New Roman', Times, serif;
   font-size: 10vw;
   z-index: -1;
-  /* text-shadow: -1px -1px 0 rgb(101, 161, 181), 1px -1px 0 rgb(101, 161, 181), -1px 1px 0 rgb(101, 161, 181), 1px 1px 0 rgb(101, 161, 181); */
+  padding-bottom: 10px;
+  text-shadow: -0.5px -0,5px 0 rgb(101, 161, 181), 1px -1px 0 rgb(101, 161, 181), -1px 1px 0 rgb(101, 161, 181), 1px 1px 0 rgb(101, 161, 181);
+}
+
+.startFrame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .center {
@@ -48,12 +54,14 @@
 .graphsContainer {
   position: absolute;
   width: 100%;
-  margin-top: 27vw;
+  /* background-color: blue; */
 }
 
 .graphsContainer > :first-child {
-  margin-bottom: 60px; 
-  width: 60%;
+  margin-top: 6%;
+  margin-bottom: 100px; 
+  width: 50%;
+  margin-left: 50%;
 }
 
 .componentsContainer {
@@ -76,9 +84,9 @@
   position: absolute;
   align-items: center;
   justify-content: center;
-  top: 10%;
   left: 10%;
   width: 80%;
+  height: 100%;
   /* background-color: red; */
 }
 
@@ -89,16 +97,34 @@
 }
 
 .legend {
-  position: relative;
-  top: 34vw;
-  height: 100px;
-  width: 100%;
-  background-color: skyblue;
+  position: absolute;
+  top: 6vw;
+  transform: translateY(60px);
+  left: 60px;
+  width: 30%;
+  max-width: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollRect {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  left: 45%;
+  transform: scaleY(2vh);
+  z-index: 999;
 }
 
 .searchContainer {
   position: absolute;
-  top: 5vw;
+  top: 4.2vw;
+  left: 60px;
+  /* max-width: 300px; */
+  width: 30%;
+  z-index: 100;
 }
 
 .searchContainer input {
@@ -110,7 +136,7 @@
   font-size: 18px;
   padding: 15px;
   height: 15px;
-  width: 300px;
+  width: 100%;
 }
 
 .searchInputs {

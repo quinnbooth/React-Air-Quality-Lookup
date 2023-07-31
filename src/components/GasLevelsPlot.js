@@ -1,15 +1,38 @@
+import React, { useState, useEffect } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 function GasLevelsPlot(props) {
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours(); 
+    const timeValues = Array.from({ length: 5 }, (_, i) => (currentHour + 6 * i) % 24);
+    const [tickValues, setTickValues] = useState(timeValues);
+
+    useEffect(() => {
+        const handleWindowResize = () => {
+          setWindowWidth(window.innerWidth);
+          if (windowWidth < 400) {
+            setTickValues([timeValues[0], timeValues[3]]);
+          } else if (windowWidth < 600) {
+            setTickValues([timeValues[0], timeValues[2]]);
+          } else {
+            setTickValues(timeValues);
+          }
+          console.log(tickValues);
+        };
+    
+        window.addEventListener('resize', handleWindowResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleWindowResize);
+        };
+    });
+
     if (!props.data) return null;
 
     const { data, gas, height } = props;
-
-    const currentDate = new Date();
-    const currentHour = currentDate.getHours(); 
-    const tickValues = Array.from({ length: 5 }, (_, i) => (currentHour + 6 * i) % 24);
-
+    
     const timeData = data.map((entry, index) => {
         if (entry) {
             const hour = (currentHour + index) % 24;
@@ -124,8 +147,15 @@ function GasLevelsPlot(props) {
                 <defs>
                     <GenerateGradient />
                 </defs>
-                <text x="54%" y={10} fill="black" textAnchor="middle" dominantBaseline="central">
-                    <tspan fontSize="20">{gasNames[gas]}</tspan>
+                <rect
+                    x="15%"
+                    y={0}
+                    width="78%"
+                    height="30"
+                    fill="rgba(135, 206, 235, 0.5)"
+                />
+                <text x="54%" y={13.7} fontWeight='bold' fill="black" textAnchor="middle" dominantBaseline="central">
+                    <tspan fontSize="1.5vw" >{gasNames[gas]}</tspan>
                 </text>
                 <CartesianGrid />
                 <XAxis
