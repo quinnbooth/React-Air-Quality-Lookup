@@ -21,7 +21,7 @@ function Console() {
 
     async function fetchForcast() {
         // let request = `http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${latitude}&lon=${longitude}&appid=${REACT_APP_OPENWEATHER_API_KEY}`;
-        let request = `http://safe-send.deno.dev/data/2.5/air_pollution/forecast?lat=${latitude}&lon=${longitude}&appid=`;
+        let request = `https://safe-send.deno.dev/data/2.5/air_pollution/forecast?lat=${latitude}&lon=${longitude}&appid=`;
         let response = await fetch(request);
         let data = await response.json();
         return data;
