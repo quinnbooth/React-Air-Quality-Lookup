@@ -19,7 +19,6 @@ function GasLevelsPlot(props) {
           } else {
             setTickValues(timeValues);
           }
-          console.log(tickValues);
         };
     
         window.addEventListener('resize', handleWindowResize);
