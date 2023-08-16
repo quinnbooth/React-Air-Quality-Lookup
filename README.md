@@ -46,3 +46,6 @@ The proxy runs on the Deno JS runtime and exclusively handles requests from my p
 
 <br>
 
+Air quality information is displayed over the next 24 hours using the Recharts library. A unique JSX gradient is generated to visually represent the different levels of gas presence in the atmosphere, ranging from "good" (green) to "very poor" (dark red). Hovering over the plots provides detailed insights for each time interval, revealing the precise gas density in the area during that period.
+
+Thanks for checking out this air quality visualization tool! I hope you found it useful and insightful. Feel free to reach out and contact me if you have any questions.
