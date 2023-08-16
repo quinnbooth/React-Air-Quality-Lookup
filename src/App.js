@@ -15,6 +15,9 @@ function App() {
         <div className='contentContainer'>
           <Parallax pages={10}>
             <ParallaxLayer offset={0} className='startFrame'>
+              <a href="https://github.com/quinnbooth/React-Air-Quality-Lookup" target="_blank" rel="noopener noreferrer" >
+                <img src={require('./assets/images/github.png')} alt="GitHub Link" className="githubLink" />
+              </a>
               <h1 className='airHeader'>AIR QUALITY</h1>
               <div className='scrollRect'>
                 <KeyboardDoubleArrowDownIcon />

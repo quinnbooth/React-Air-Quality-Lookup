@@ -133,7 +133,7 @@ function GasLevelsPlot(props) {
           
     return (
 
-        <ResponsiveContainer width="100%" height={parseInt(height)}>
+        <ResponsiveContainer width="100%" minWidth="10px" height={parseInt(height)}>
             <AreaChart 
                 data={timeData}
                 margin={{
@@ -142,11 +142,12 @@ function GasLevelsPlot(props) {
                     left: 0,
                     bottom: 0,
                 }}
+                minWidth={"100px"}
             >
                 <defs>
                     <GenerateGradient />
                 </defs>
-                <rect
+                <rect 
                     x="15%"
                     y={0}
                     width="78%"

@@ -107,6 +107,18 @@
   z-index: 999;
 }
 
+.githubLink {
+  position: absolute;
+  width: 100px;
+  top: 25px;
+  right: 25px;
+  background-color: transparent;
+}
+
+.githubLink:hover {
+  background-color: rgb(200, 200, 200, 0.4);
+}
+
 .legend {
   position: absolute;
   top: 6vw;
