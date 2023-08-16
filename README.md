@@ -29,7 +29,10 @@ First, visit the website above. Once there, scroll down and enter your city into
 
 # How it Works
 
-Lorem ipsum dolor sit amet, pro ei sale corpora probatus. Cu pri inani oporteat scriptorem, ius legimus gubergren eu, mucius delicata ne sit. Eum dicit possim ut, et his falli quaeque, oratio putent commodo has id. Mel eu tota consetetur instructior, eu ponderum consequuntur cum, in sea ceteros definitionem.<br><br>
+
+Scrolling down the page will reveal a search bar and interactive graphs with a parallax effect. The search bar filters through a JSON file containing data from the World Cities Database. Typing in the search bar and pressing enter or selecting a predictive entry prompts the page to fetch air quality information for the chosen location via its API proxy.
+
+The proxy runs on the Deno JS runtime and exclusively handles requests from my personal GitHub pages sites. This added measure ensures the privacy of my API transactions, as React is primarily a frontend framework, which might otherwise expose sensitive information like keys in the source code. When it receives an OpenWeather API request, it appends the access token and relays it to OpenWeather. Afterward, it sends the query's response back to the Air Quality Lookup, where the information is displayed.<br><br>
 
 <p align="center">
   <img src="./README_media/readme_chart.png" alt="Chart" width="360" height="180">
@@ -43,6 +46,3 @@ Lorem ipsum dolor sit amet, pro ei sale corpora probatus. Cu pri inani oporteat 
 
 <br>
 
-Putant quaerendum eam et, vide invidunt delicata mel ne, sit no ignota mucius similique. Eu sit errem percipit constituto, bonorum referrentur an vis. Sed et libris antiopam interesset, integre delenit pro ut, nec semper volutpat ad. Mei putent facilis vituperata ea. Perpetua postulant elaboraret vis ad, meis solum eam eu. Enim tritani argumentum est ei, te habeo mazim quo.
-
-Quo in prima albucius sapientem, per tota maluisset in, eu has consul mediocrem torquatos. Exerci dicunt detracto at mel. Pri posse reformidans ad, id ius dolorem dignissim deterruisset. Vim nisl intellegam consequuntur ut, vix ne error possim. Dicunt diceret no eam, cu elitr oportere nec.
